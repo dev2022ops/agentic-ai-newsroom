@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agentic AI Newsroom</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo">◆</span>
+        <div>
+          <h1>Agentic AI Newsroom</h1>
+          <p class="sub">Research → Human review → LinkedIn + X in parallel</p>
+        </div>
+      </div>
+      <button id="open-settings" class="btn ghost">⚙ Settings <span id="key-status" class="pill"></span></button>
+    </header>
+
+    <ol class="stepper" id="stepper">
+      <li data-step="1">Research</li>
+      <li data-step="2">Review &amp; select 3</li>
+      <li data-step="3">Generate content</li>
+    </ol>
+
+    <main id="app"></main>
+
+    <dialog id="settings-dialog">
+      <form method="dialog" id="settings-form">
+        <h2>Settings</h2>
+        <p class="muted">
+          Keys are sent only to OpenAI and SerpAPI via this app's local proxy. They are kept in
+          this browser tab's session storage, or in local storage if you tick "Remember".
+        </p>
+        <label>OpenAI API key
+          <input type="password" name="openaiKey" placeholder="sk-..." autocomplete="off" />
+        </label>
+        <label>SerpAPI key
+          <input type="password" name="serpKey" placeholder="SerpAPI key" autocomplete="off" />
+        </label>
+        <label>Model
+          <input type="text" name="model" placeholder="gpt-6.1-sol" />
+        </label>
+        <label>News time range
+          <select name="recency">
+            <option value="qdr:d">Past 24 hours</option>
+            <option value="qdr:w">Past week</option>
+            <option value="qdr:m">Past month</option>
+          </select>
+        </label>
+        <label class="inline"><input type="checkbox" name="remember" /> Remember keys on this device</label>
+        <div class="row end">
+          <button type="button" class="btn ghost" id="clear-keys">Clear keys</button>
+          <button value="save" class="btn primary">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
